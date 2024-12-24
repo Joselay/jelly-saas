@@ -1,7 +1,9 @@
-<template lang="">
-    <div>hello world</div>
-</template>
-<script>
-export default {};
+<script setup lang="ts">
+import { Button } from "@/Components/ui/button";
 </script>
-<style lang=""></style>
+
+<template>
+    <div>
+        <Button>Click me</Button>
+    </div>
+</template>
