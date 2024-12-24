@@ -5,12 +5,13 @@ import { Label } from "@/components/ui/label";
 import { Link, useForm } from "@inertiajs/vue3";
 
 const form = useForm({
+    name: "",
     email: "",
     password: "",
 });
 
 const handleSubmit = () => {
-    form.post("/login");
+    form.post("/register");
 };
 </script>
 
@@ -22,12 +23,22 @@ const handleSubmit = () => {
         <div class="flex items-center justify-center py-12">
             <div class="mx-auto grid w-[350px] gap-6">
                 <div class="grid gap-2 text-center">
-                    <h1 class="text-3xl font-bold">Login</h1>
+                    <h1 class="text-3xl font-bold">Register</h1>
                     <p class="text-balance text-muted-foreground">
-                        Enter your email below to login to your account
+                        Enter your email below to register to your account
                     </p>
                 </div>
                 <div class="grid gap-4">
+                    <div class="grid gap-2">
+                        <Label for="name">Name</Label>
+                        <Input
+                            v-model="form.name"
+                            id="name"
+                            type="text"
+                            placeholder="John Doe"
+                            required
+                        />
+                    </div>
                     <div class="grid gap-2">
                         <Label for="email">Email</Label>
                         <Input
@@ -41,12 +52,6 @@ const handleSubmit = () => {
                     <div class="grid gap-2">
                         <div class="flex items-center">
                             <Label for="password">Password</Label>
-                            <a
-                                href="/forgot-password"
-                                class="inline-block ml-auto text-sm underline"
-                            >
-                                Forgot your password?
-                            </a>
                         </div>
                         <Input
                             v-model="form.password"
@@ -55,14 +60,11 @@ const handleSubmit = () => {
                             required
                         />
                     </div>
-                    <Button type="submit" class="w-full"> Login </Button>
-                    <Button variant="outline" class="w-full">
-                        Login with Google
-                    </Button>
+                    <Button type="submit" class="w-full"> Register </Button>
                 </div>
                 <div class="mt-4 text-sm text-center">
-                    Don't have an account?
-                    <Link href="/register" class="underline"> Register </Link>
+                    Already have an account?
+                    <Link href="/login" class="underline"> Login </Link>
                 </div>
             </div>
         </div>
