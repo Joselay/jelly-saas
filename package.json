@@ -21,12 +21,14 @@
         "vue-tsc": "^2.0.24"
     },
     "dependencies": {
+        "@tanstack/vue-table": "^8.20.5",
         "@vueuse/core": "^12.2.0",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-vue-next": "^0.469.0",
         "radix-vue": "^1.9.11",
         "tailwind-merge": "^2.6.0",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwindcss-animate": "^1.0.7",
+        "zod": "^3.24.1"
     }
 }
