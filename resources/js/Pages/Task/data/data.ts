@@ -1,11 +1,5 @@
-// import ArrowDownIcon from '~icons/radix-icons/arrow-down'
-// import ArrowRightIcon from '~icons/radix-icons/arrow-right'
-// import ArrowUpIcon from '~icons/radix-icons/arrow-up'
-// import CheckCircledIcon from '~icons/radix-icons/check-circled'
-// import CircleIcon from '~icons/radix-icons/circle'
-// import CrossCircledIcon from '~icons/radix-icons/cross-circled'
-// import QuestionMarkCircledIcon from '~icons/radix-icons/question-mark-circled'
-// import StopwatchIcon from '~icons/radix-icons/stopwatch'
+import {ArrowDownIcon, ArrowRightIcon, ArrowUpIcon, CheckCircledIcon, CircleIcon, CrossCircledIcon, QuestionMarkCircledIcon, StopwatchIcon} from "@radix-icons/vue";
+
 import { h } from "vue";
 
 export const labels = [
@@ -27,27 +21,27 @@ export const statuses = [
     {
         value: "backlog",
         label: "Backlog",
-        // icon: h(QuestionMarkCircledIcon),
+        icon: h(QuestionMarkCircledIcon),
     },
     {
         value: "todo",
         label: "Todo",
-        // icon: h(CircleIcon),
+        icon: h(CircleIcon),
     },
     {
         value: "in progress",
         label: "In Progress",
-        // icon: h(StopwatchIcon),
+        icon: h(StopwatchIcon),
     },
     {
         value: "done",
         label: "Done",
-        // icon: h(CheckCircledIcon),
+        icon: h(CheckCircledIcon),
     },
     {
         value: "canceled",
         label: "Canceled",
-        // icon: h(CrossCircledIcon),
+        icon: h(CrossCircledIcon),
     },
 ];
 
@@ -55,16 +49,16 @@ export const priorities = [
     {
         value: "low",
         label: "Low",
-        // icon: h(ArrowDownIcon),
+        icon: h(ArrowDownIcon),
     },
     {
         value: "medium",
         label: "Medium",
-        // icon: h(ArrowRightIcon),
+        icon: h(ArrowRightIcon),
     },
     {
         value: "high",
         label: "High",
-        // icon: h(ArrowUpIcon),
+        icon: h(ArrowUpIcon),
     },
 ];

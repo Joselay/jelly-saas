@@ -22,8 +22,8 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-// import CheckIcon from "~icons/radix-icons/check";
-// import PlusCircledIcon from "~icons/radix-icons/plus-circled";
+import {CheckIcon, PlusCircledIcon} from "@radix-icons/vue"
+
 import { computed } from "vue";
 
 interface DataTableFacetedFilter {

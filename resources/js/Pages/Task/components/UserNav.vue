@@ -19,7 +19,7 @@ import { Link } from "@inertiajs/vue3";
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" class="relative w-8 h-8 rounded-full">
                 <Avatar class="h-9 w-9">
-                    <AvatarImage src="/avatars/03.png" alt="@shadcn" />
+                    <AvatarImage src="/images/profile.jpg" alt="@shadcn" />
                     <AvatarFallback>SC</AvatarFallback>
                 </Avatar>
             </Button>

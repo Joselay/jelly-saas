@@ -11,7 +11,8 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-// import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
+import {MixerHorizontalIcon} from "@radix-icons/vue";
+
 import { computed } from "vue";
 
 interface DataTableViewOptionsProps {

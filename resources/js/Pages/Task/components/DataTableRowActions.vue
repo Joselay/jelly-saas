@@ -15,7 +15,11 @@ import {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-// import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
+
+import {DotsHorizontalIcon} from "@radix-icons/vue"
+
+
+
 import { computed } from "vue";
 
 import { labels } from "../data/data";

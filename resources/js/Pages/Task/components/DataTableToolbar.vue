@@ -4,7 +4,9 @@ import type { Task } from "../data/schema";
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
-// import Cross2Icon from "~icons/radix-icons/cross-2";
+
+import {Cross2Icon} from "@radix-icons/vue"
+
 import { computed } from "vue";
 import { priorities, statuses } from "../data/data";
 import DataTableFacetedFilter from "./DataTableFacetedFilter.vue";
@@ -54,7 +56,7 @@ const isFiltered = computed(
                 @click="table.resetColumnFilters()"
             >
                 Reset
-                <!-- <Cross2Icon class="w-4 h-4 ml-2" /> -->
+                <Cross2Icon class="w-4 h-4 ml-2" />
             </Button>
         </div>
         <DataTableViewOptions :table="table" />

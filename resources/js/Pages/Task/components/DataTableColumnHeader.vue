@@ -10,11 +10,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-// import ArrowDownIcon from '~icons/radix-icons/arrow-down'
 
-// import ArrowUpIcon from '~icons/radix-icons/arrow-up'
-// import CaretSortIcon from '~icons/radix-icons/caret-sort'
-// import EyeNoneIcon from '~icons/radix-icons/eye-none'
+import {ArrowDownIcon, ArrowUpIcon, CaretSortIcon, EyeNoneIcon} from "@radix-icons/vue"
+
 
 interface DataTableColumnHeaderProps {
     column: Column<Task, any>;

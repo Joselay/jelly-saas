@@ -9,11 +9,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-// import ChevronLeftIcon from "~icons/radix-icons/chevron-left";
-// import ChevronRightIcon from "~icons/radix-icons/chevron-right";
 
-// import DoubleArrowLeftIcon from "~icons/radix-icons/double-arrow-left";
-// import DoubleArrowRightIcon from "~icons/radix-icons/double-arrow-right";
+import {ChevronLeftIcon,ChevronRightIcon,DoubleArrowLeftIcon, DoubleArrowRightIcon} from "@radix-icons/vue"
+
 
 interface DataTablePaginationProps {
     table: Table<Task>;
