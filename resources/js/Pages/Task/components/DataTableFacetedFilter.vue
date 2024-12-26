@@ -22,7 +22,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-import {CheckIcon, PlusCircledIcon} from "@radix-icons/vue"
+import { CheckIcon, PlusCircledIcon } from "@radix-icons/vue";
 
 import { computed } from "vue";
 
@@ -85,7 +85,7 @@ const selectedValues = computed(
         </PopoverTrigger>
         <PopoverContent class="w-[200px] p-0" align="start">
             <Command
-                :filter-function="(list: DataTableFacetedFilter['options'], term) => list.filter(i => i.label.toLowerCase()?.includes(term)) "
+                :filter-function="(list: any[], term: string) => list.filter(i => i.label.toLowerCase()?.includes(term)) as any"
             >
                 <CommandInput :placeholder="title" />
                 <CommandList>
