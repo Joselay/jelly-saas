@@ -13,3 +13,5 @@ Route::post("/login", [LoginController::class, "loginUser"]);
 Route::get("/", fn() => Inertia::render("Task/Task"));
 
 Route::post("/logout", [LoginController::class, "logoutUser"]);
+
+Route::post("/send-otp", [RegisterController::class, "sendOtp"]);

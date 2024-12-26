@@ -3,6 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useForm } from "@inertiajs/vue3";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { ref } from "vue";
+import Loading from "@/components/Loading.vue";
+import OtpForm from "@/components/OtpForm.vue";
 
 const form = useForm({
     name: "",
@@ -10,15 +22,26 @@ const form = useForm({
     password: "",
 });
 
+const isLoading = ref(false);
+
 const handleSubmit = () => {
-    form.post("/register");
+    form.post("/send-otp", {
+        onStart: (_) => {
+            isLoading.value = true;
+        },
+        onSuccess: (_) => {
+            isLoading.value = false;
+        },
+    });
 };
 </script>
 
 <template>
+    <Loading :isLoading="isLoading" />
+
     <form
         @submit.prevent="handleSubmit"
-        class="w-dvw h-dvh lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
+        class="relative w-dvw h-dvh lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
     >
         <div class="flex items-center justify-center py-12">
             <div class="mx-auto grid w-[350px] gap-6">
@@ -28,6 +51,7 @@ const handleSubmit = () => {
                         Enter your email below to register to your account
                     </p>
                 </div>
+
                 <div class="grid gap-4">
                     <div class="grid gap-2">
                         <Label for="name">Name</Label>
@@ -39,6 +63,7 @@ const handleSubmit = () => {
                             required
                         />
                     </div>
+
                     <div class="grid gap-2">
                         <Label for="email">Email</Label>
                         <Input
@@ -49,6 +74,7 @@ const handleSubmit = () => {
                             required
                         />
                     </div>
+
                     <div class="grid gap-2">
                         <div class="flex items-center">
                             <Label for="password">Password</Label>
@@ -60,14 +86,34 @@ const handleSubmit = () => {
                             required
                         />
                     </div>
-                    <Button type="submit" class="w-full"> Register </Button>
+
+                    <Dialog>
+                        <DialogTrigger as-child>
+                            <Button type="submit">Register</Button>
+                        </DialogTrigger>
+                        <DialogContent
+                            v-if="!isLoading"
+                            class="sm:max-w-[425px]"
+                        >
+                            <DialogHeader>
+                                <DialogTitle>OTP Verification</DialogTitle>
+                                <DialogDescription>
+                                    The code has been sent to your email. Please
+                                    check and verify your code within 5 minutes.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <OtpForm />
+                        </DialogContent>
+                    </Dialog>
                 </div>
+
                 <div class="mt-4 text-sm text-center">
                     Already have an account?
-                    <Link href="/login" class="underline"> Login </Link>
+                    <Link href="/login" class="underline">Login</Link>
                 </div>
             </div>
         </div>
+
         <div class="hidden bg-muted lg:block">
             <img
                 src="https://www.shadcn-vue.com/placeholder.svg"
