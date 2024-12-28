@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -13,6 +14,11 @@ class LoginController extends Controller
     public function index()
     {
         return Inertia::render("Auth/Login");
+    }
+
+    public function loginWithGoogle()
+    {
+        return Socialite::driver("google")->redirect();
     }
 
     public function loginUser(Request $request)

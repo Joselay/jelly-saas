@@ -12,6 +12,11 @@ const form = useForm({
 const handleSubmit = () => {
     form.post("/login");
 };
+
+const loginWithGoogle = (event: Event) => {
+    event.preventDefault();
+    window.location.href = "/auth/google/redirect";
+};
 </script>
 
 <template>
@@ -57,15 +62,13 @@ const handleSubmit = () => {
                         />
                     </div>
                     <Button type="submit" class="w-full"> Login </Button>
-                    <Link
-                        href="/auth/google/redirect"
-                        type="button"
-                        as="button"
+                    <Button
+                        @click="loginWithGoogle"
                         variant="outline"
                         class="w-full"
                     >
                         Login with Google
-                    </Link>
+                    </Button>
                 </div>
                 <div class="mt-4 text-sm text-center">
                     Don't have an account?

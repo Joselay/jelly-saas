@@ -21,10 +21,8 @@ Route::post("/send-otp", [RegisterController::class, "sendOtp"]);
 Route::post("/login", [LoginController::class, "loginUser"]);
 Route::post("/logout", [LoginController::class, "logoutUser"]);
 
-Route::get("auth/google/redirect", function () {
-    return Socialite::driver("google")->redirect();
-});
+Route::get("/auth/google/redirect", [LoginController::class, "loginWithGoogle"]);
 
-Route::get("auth/google/callback", function (Request $request) {
+Route::get("/auth/google/callback", function (Request $request) {
     dd(Socialite::driver("google")->user());
 });
