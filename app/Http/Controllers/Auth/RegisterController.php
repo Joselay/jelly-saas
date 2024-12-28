@@ -9,9 +9,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Inertia\Inertia;
 
 class RegisterController extends Controller
 {
+
+    public function index()
+    {
+        return Inertia::render("Auth/Register");
+    }
+
     public function sendOtp(Request $request)
     {
         $request->validate(['email' => "required|email"]);
