@@ -7,7 +7,6 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -15,6 +14,7 @@ import {
 import { ref } from "vue";
 import Loading from "@/components/Loading.vue";
 import OtpForm from "@/components/OtpForm.vue";
+import { Head } from "@inertiajs/vue3";
 
 const form = useForm({
     name: "",
@@ -37,6 +37,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
+    <Head title="Register"></Head>
     <Loading :isLoading="isLoading" />
 
     <form
@@ -60,7 +61,6 @@ const handleSubmit = () => {
                             id="name"
                             type="text"
                             placeholder="John Doe"
-                            required
                         />
                     </div>
 
@@ -71,7 +71,6 @@ const handleSubmit = () => {
                             id="email"
                             type="email"
                             placeholder="m@example.com"
-                            required
                         />
                     </div>
 
@@ -83,7 +82,6 @@ const handleSubmit = () => {
                             v-model="form.password"
                             id="password"
                             type="password"
-                            required
                         />
                     </div>
 

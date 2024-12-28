@@ -49,6 +49,6 @@ class RegisterController extends Controller
 
         Session::forget('otp');
 
-        return redirect("/login")->with('success', 'Account created successfully.');
+        return to_route("auth.login");
     }
 }

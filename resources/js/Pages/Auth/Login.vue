@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link, useForm } from "@inertiajs/vue3";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
 const form = useForm({
     email: "",
@@ -15,6 +15,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
+    <Head title="Login"></Head>
     <form
         @submit.prevent="handleSubmit"
         class="w-dvw h-dvh lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"
