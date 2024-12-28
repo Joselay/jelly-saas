@@ -2,14 +2,17 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Task\TaskController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::get("/", fn() => Inertia::render("Home/Home"));
+
+
 Route::get("/login", [LoginController::class, "index"])->name("auth.login");
 Route::get("/register", [RegisterController::class, "index"])->name("auth.register");
+Route::get("/tasks", [TaskController::class, "index"])->name("task.task");
 
-Route::get("/", fn() => Inertia::render("Home/Home"));
-Route::get("/tasks", fn() => Inertia::render("Task/Task"));
 
 Route::post("/register", [RegisterController::class, "createAccount"]);
 Route::post("/send-otp", [RegisterController::class, "sendOtp"]);
