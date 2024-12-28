@@ -1,87 +1,39 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import {
-    FormControl,
-    FormField,
-    FormItem,
-    FormMessage,
-} from "@/components/ui/form";
 import {
     PinInput,
     PinInputGroup,
     PinInputInput,
+    PinInputSeparator,
 } from "@/components/ui/pin-input";
-import { toast } from "@/components/ui/toast";
-import { toTypedSchema } from "@vee-validate/zod";
-import { useForm } from "vee-validate";
-import { h } from "vue";
-import * as z from "zod";
+import { UserProps } from "@/interface/user";
+import { router } from "@inertiajs/vue3";
+import { ref } from "vue";
 
-const formSchema = toTypedSchema(
-    z.object({
-        pin: z.array(z.coerce.string()).length(5, { message: "Invalid input" }),
-    })
-);
+const props = defineProps<{ user: UserProps }>();
 
-const { handleSubmit, setFieldValue } = useForm({
-    validationSchema: formSchema,
-    initialValues: {
-        pin: [""],
-    },
-});
-
-const onSubmit = handleSubmit(({ pin }) => {
-    toast({
-        title: "You submitted the following values:",
-        description: h(
-            "pre",
-            { class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
-            h(
-                "code",
-                { class: "text-white" },
-                JSON.stringify(pin.join(""), null, 2)
-            )
-        ),
-    });
-});
-
-const handleComplete = (e: string[]) => console.log(e.join(""));
+const value = ref<string[]>([]);
+const handleComplete = (e: string[]) => {
+    const otp: string = e.join("");
+    router.post("/register");
+};
 </script>
 
 <template>
-    <form class="w-full mx-auto space-y-6" @submit="onSubmit">
-        <FormField v-slot="{ componentField, value }" name="pin">
-            <FormItem>
-                <FormControl>
-                    <PinInput
-                        id="pin-input"
-                        :model-value="value"
-                        placeholder="○"
-                        class="flex items-center gap-2 mt-1"
-                        otp
-                        type="number"
-                        :name="componentField.name"
-                        @complete="handleComplete"
-                        @update:model-value="
-                            (arrStr) => {
-                                setFieldValue('pin', arrStr.filter(Boolean));
-                            }
-                        "
-                    >
-                        <PinInputGroup>
-                            <PinInputInput
-                                v-for="(id, index) in 6"
-                                :key="id"
-                                :index="index"
-                            />
-                        </PinInputGroup>
-                    </PinInput>
-                </FormControl>
-
-                <FormMessage />
-            </FormItem>
-        </FormField>
-
-        <Button>Submit</Button>
-    </form>
+    <div>
+        <PinInput
+            id="pin-input"
+            v-model="value"
+            placeholder="○"
+            @complete="handleComplete"
+        >
+            <PinInputGroup>
+                <template v-for="(id, index) in 6" :key="id">
+                    <PinInputInput class="border rounded-md" :index="index" />
+                    <template v-if="index !== 5">
+                        <PinInputSeparator />
+                    </template>
+                </template>
+            </PinInputGroup>
+        </PinInput>
+    </div>
 </template>
