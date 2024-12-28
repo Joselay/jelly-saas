@@ -23,6 +23,4 @@ Route::post("/logout", [LoginController::class, "logoutUser"]);
 
 Route::get("/auth/google/redirect", [LoginController::class, "loginWithGoogle"]);
 
-Route::get("/auth/google/callback", function (Request $request) {
-    dd(Socialite::driver("google")->user());
-});
+Route::get("/auth/google/callback", [LoginController::class, "loginWithGoogleCallback"]);
