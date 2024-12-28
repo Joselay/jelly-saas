@@ -9,18 +9,22 @@ import { UserProps } from "@/interface/user";
 import { router } from "@inertiajs/vue3";
 import { ref } from "vue";
 
-const props = defineProps<{ user: UserProps }>();
+const { user } = defineProps<{ user: UserProps }>();
 
 const value = ref<string[]>([]);
 const handleComplete = (e: string[]) => {
-    const otp: string = e.join("");
-    router.post("/register");
+    const otp: number = parseInt(e.join(""));
+
+    const updatedUser = { ...user, otp };
+
+    router.post("/register", updatedUser);
 };
 </script>
 
 <template>
     <div>
         <PinInput
+            type="number"
             id="pin-input"
             v-model="value"
             placeholder="○"

@@ -35,6 +35,8 @@ class RegisterController extends Controller
             "otp" => "required|integer|digits:6"
         ]);
 
+
+
         if ($request->otp !== Session::get('otp')) {
             return redirect()->back()->withErrors(['otp' => 'Invalid OTP.']);
         }

@@ -102,7 +102,13 @@ const handleSubmit = () => {
                                     check and verify your code within 5 minutes.
                                 </DialogDescription>
                             </DialogHeader>
-                            <OtpForm />
+                            <OtpForm
+                                :user="{
+                                    name: form.name,
+                                    email: form.email,
+                                    password: form.password,
+                                }"
+                            />
                         </DialogContent>
                     </Dialog>
                 </div>
