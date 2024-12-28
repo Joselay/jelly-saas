@@ -43,6 +43,12 @@ const loginWithGoogle = (event: Event) => {
                             placeholder="m@example.com"
                             required
                         />
+                        <span
+                            class="text-sm text-red-500"
+                            v-if="form.errors.email"
+                        >
+                            {{ form.errors.email }}
+                        </span>
                     </div>
                     <div class="grid gap-2">
                         <div class="flex items-center">
@@ -60,6 +66,12 @@ const loginWithGoogle = (event: Event) => {
                             type="password"
                             required
                         />
+                        <span
+                            class="text-sm text-red-500"
+                            v-if="form.errors.password"
+                        >
+                            {{ form.errors.password }}
+                        </span>
                     </div>
                     <Button type="submit" class="w-full"> Login </Button>
                     <Button

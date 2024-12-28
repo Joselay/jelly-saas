@@ -23,7 +23,7 @@ const user = computed(() => page.props.auth.user);
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" class="relative w-8 h-8 rounded-full">
                 <Avatar class="h-9 w-9">
-                    <AvatarImage src="/images/profile.jpg" alt="@shadcn" />
+                    <AvatarImage :src="user.avatar" alt="@shadcn" />
                     <AvatarFallback>SC</AvatarFallback>
                 </Avatar>
             </Button>
