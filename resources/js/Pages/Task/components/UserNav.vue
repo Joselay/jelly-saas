@@ -14,8 +14,16 @@ import {
 import { Link, usePage } from "@inertiajs/vue3";
 import { computed } from "vue";
 
+interface User {
+    avatar: string;
+    email: string;
+    name: string;
+}
+
 const page = usePage();
-const user = computed(() => page.props.auth.user);
+const user = computed<User>(() => page.props.auth.user);
+
+const fallbackImageName: string = user.value.name[0];
 </script>
 
 <template>
@@ -23,8 +31,8 @@ const user = computed(() => page.props.auth.user);
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" class="relative w-8 h-8 rounded-full">
                 <Avatar class="h-9 w-9">
-                    <AvatarImage :src="user.avatar" alt="@shadcn" />
-                    <AvatarFallback>SC</AvatarFallback>
+                    <AvatarImage :src="user?.avatar || ''" alt="@shadcn" />
+                    <AvatarFallback>{{ fallbackImageName }}</AvatarFallback>
                 </Avatar>
             </Button>
         </DropdownMenuTrigger>
