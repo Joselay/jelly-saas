@@ -6,19 +6,6 @@ import tasks from "./data/tasks.json";
 </script>
 
 <template>
-    <div class="md:hidden">
-        <VPImage
-            alt="Tasks"
-            width="1280"
-            height="1214"
-            class="block"
-            :image="{
-                dark: '/examples/tasks-dark.png',
-                light: '/examples/tasks-light.png',
-            }"
-        />
-    </div>
-
     <div class="flex-col flex-1 hidden h-full p-8 space-y-8 md:flex">
         <div class="flex items-center justify-between space-y-2">
             <div>

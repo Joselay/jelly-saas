@@ -11,7 +11,11 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Link } from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/vue3";
+import { computed } from "vue";
+
+const page = usePage();
+const user = computed(() => page.props.auth.user);
 </script>
 
 <template>
@@ -27,9 +31,11 @@ import { Link } from "@inertiajs/vue3";
         <DropdownMenuContent class="w-56" align="end">
             <DropdownMenuLabel class="flex font-normal">
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm font-medium leading-none">shadcn</p>
+                    <p class="text-sm font-medium leading-none">
+                        {{ user.name }}
+                    </p>
                     <p class="text-xs leading-none text-muted-foreground">
-                        m@example.com
+                        {{ user.email }}
                     </p>
                 </div>
             </DropdownMenuLabel>
