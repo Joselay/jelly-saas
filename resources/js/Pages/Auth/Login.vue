@@ -57,9 +57,15 @@ const handleSubmit = () => {
                         />
                     </div>
                     <Button type="submit" class="w-full"> Login </Button>
-                    <Button variant="outline" class="w-full">
+                    <Link
+                        href="/auth/google/redirect"
+                        type="button"
+                        as="button"
+                        variant="outline"
+                        class="w-full"
+                    >
                         Login with Google
-                    </Button>
+                    </Link>
                 </div>
                 <div class="mt-4 text-sm text-center">
                     Don't have an account?
