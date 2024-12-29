@@ -28,20 +28,23 @@ class LoginController extends Controller
 
         $user = User::where('google_id', $googleUser->getId())->first();
 
-
         if ($user) {
+            // User exists, update their details
             $user->update([
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
                 'avatar' => $googleUser->getAvatar(),
             ]);
         } else {
-            $user = User::create([
-                'name' => $googleUser->getName(),
-                'email' => $googleUser->getEmail(),
-                'avatar' => $googleUser->getAvatar(),
-                'google_id' => $googleUser->getId(),
-            ]);
+            // User doesn't exist, create a new one
+            $user = User::firstOrCreate(
+                ['email' => $googleUser->getEmail()],
+                [
+                    'name' => $googleUser->getName(),
+                    'avatar' => $googleUser->getAvatar(),
+                    'google_id' => $googleUser->getId(),
+                ]
+            );
         }
 
         Auth::login($user, true);
