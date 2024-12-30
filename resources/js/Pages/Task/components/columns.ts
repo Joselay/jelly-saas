@@ -62,6 +62,25 @@ export const columns: ColumnDef<Task>[] = [
         },
     },
     {
+        accessorKey: "assignee",
+        header: ({ column }) =>
+            h(DataTableColumnHeader, { column, title: "Assignee" }),
+
+        cell: () => {
+            const avatarUrl = "/images/profile.jpg";
+
+            if (!avatarUrl) return null;
+
+            return h("div", { class: "flex items-center space-x-2" }, [
+                h("img", {
+                    src: avatarUrl,
+                    alt: "Assignee Avatar",
+                    class: "h-8 w-8 rounded-full object-cover",
+                }),
+            ]);
+        },
+    },
+    {
         accessorKey: "status",
         header: ({ column }) =>
             h(DataTableColumnHeader, { column, title: "Status" }),
