@@ -55,7 +55,7 @@ export const columns: ColumnDef<Task>[] = [
                     : null,
                 h(
                     "span",
-                    { class: "max-w-[500px] truncate font-medium" },
+                    { class: "max-w-[600px] truncate font-medium" },
                     row.getValue("title")
                 ),
             ]);
