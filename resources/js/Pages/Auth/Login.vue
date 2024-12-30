@@ -17,10 +17,12 @@ const loginWithGoogle = (event: Event) => {
     event.preventDefault();
     window.location.href = "/auth/google/redirect";
 };
+
+defineOptions({ layout: null });
 </script>
 
 <template>
-    <Head title="Login"></Head>
+    <Head title="Login - "></Head>
     <form
         @submit.prevent="handleSubmit"
         class="w-dvw h-dvh lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]"

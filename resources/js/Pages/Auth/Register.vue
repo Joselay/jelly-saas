@@ -34,6 +34,8 @@ const handleSubmit = () => {
         },
     });
 };
+
+defineOptions({ layout: null });
 </script>
 
 <template>

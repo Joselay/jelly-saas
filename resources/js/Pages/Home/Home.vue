@@ -220,6 +220,8 @@ const footerNavigation = {
     ],
 };
 
+defineOptions({ layout: null });
+
 const mobileMenuOpen = ref(false);
 </script>
 
