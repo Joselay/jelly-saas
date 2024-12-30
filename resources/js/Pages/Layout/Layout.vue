@@ -476,10 +476,12 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
-                                    <DropdownMenuItem>
-                                        <Settings />
-                                        Settings
-                                    </DropdownMenuItem>
+                                    <Link href="/settings/profile">
+                                        <DropdownMenuItem>
+                                            <Settings />
+                                            Settings
+                                        </DropdownMenuItem>
+                                    </Link>
                                     <DropdownMenuItem>
                                         <CreditCard />
                                         Billing
