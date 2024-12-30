@@ -213,12 +213,15 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
 
 <template>
     <SidebarProvider>
-        <Sidebar collapsible="icon">
+        <Sidebar collapsible="icon" class="bg-primary-foreground">
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <DropdownMenu>
-                            <DropdownMenuTrigger as-child>
+                            <DropdownMenuTrigger
+                                as-child
+                                class="hover:bg-muted"
+                            >
                                 <SidebarMenuButton
                                     size="lg"
                                     class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
@@ -304,7 +307,10 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                             class="group/collapsible"
                         >
                             <SidebarMenuItem>
-                                <CollapsibleTrigger as-child>
+                                <CollapsibleTrigger
+                                    as-child
+                                    class="hover:bg-muted"
+                                >
                                     <SidebarMenuButton :tooltip="item.title">
                                         <component :is="item.icon" />
                                         <span>{{ item.title }}</span>
@@ -319,7 +325,10 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                                             v-for="subItem in item.items"
                                             :key="subItem.title"
                                         >
-                                            <SidebarMenuSubButton as-child>
+                                            <SidebarMenuSubButton
+                                                class="hover:bg-muted"
+                                                as-child
+                                            >
                                                 <a :href="subItem.url">
                                                     <span>{{
                                                         subItem.title
@@ -340,14 +349,17 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                             v-for="item in data.projects"
                             :key="item.name"
                         >
-                            <SidebarMenuButton as-child>
+                            <SidebarMenuButton class="hover:bg-muted" as-child>
                                 <a :href="item.url">
                                     <component :is="item.icon" />
                                     <span>{{ item.name }}</span>
                                 </a>
                             </SidebarMenuButton>
                             <DropdownMenu>
-                                <DropdownMenuTrigger as-child>
+                                <DropdownMenuTrigger
+                                    class="hover:bg-muted"
+                                    as-child
+                                >
                                     <SidebarMenuAction show-on-hover>
                                         <MoreHorizontal />
                                         <span class="sr-only">More</span>
@@ -393,7 +405,10 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <DropdownMenu>
-                            <DropdownMenuTrigger as-child>
+                            <DropdownMenuTrigger
+                                class="hover:bg-muted"
+                                as-child
+                            >
                                 <SidebarMenuButton
                                     size="lg"
                                     class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
