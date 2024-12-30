@@ -11,19 +11,19 @@ interface Item {
 const sidebarNavItems: Item[] = [
     {
         title: "Profile",
-        href: "/profile",
+        href: "/settings/profile",
     },
     {
         title: "Account",
-        href: "/account",
+        href: "/settings/account",
     },
     {
         title: "Appearance",
-        href: "/appearance",
+        href: "/settings/appearance",
     },
     {
         title: "Notifications",
-        href: "/notifications",
+        href: "/settings/notifications",
     },
 ];
 </script>

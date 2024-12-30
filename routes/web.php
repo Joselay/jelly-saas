@@ -15,11 +15,15 @@ Route::get("/", fn() => Inertia::render("Home/Home"));
 
 Route::get("/login", [LoginController::class, "index"])->name("auth.login");
 Route::get("/register", [RegisterController::class, "index"])->name("auth.register");
+
 Route::get("/tasks", [TaskController::class, "index"])->name("task.task");
-Route::get("/profile", [ProfileController::class, "index"])->name("profile.profile");
-Route::get("/account", [AccountController::class, "index"])->name("account.account");
-Route::get("/appearance", [AppearanceController::class, "index"])->name("appearance.appearance");
-Route::get("/notifications", [NotificationsController::class, "index"])->name("notifications.notifications");
+
+Route::prefix('settings')->group(function () {
+    Route::get("/profile", [ProfileController::class, "index"])->name("settings.profile");
+    Route::get("/account", [AccountController::class, "index"])->name("settings.account");
+    Route::get("/appearance", [AppearanceController::class, "index"])->name("settings.appearance");
+    Route::get("/notifications", [NotificationsController::class, "index"])->name("settings.notifications");
+});
 
 
 Route::post("/register", [RegisterController::class, "createAccount"]);
