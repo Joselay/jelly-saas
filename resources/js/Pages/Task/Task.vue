@@ -73,11 +73,14 @@ import { ref } from "vue";
 import { columns } from "./components/columns";
 import DataTable from "./components/DataTable.vue";
 import tasks from "./data/tasks.json";
+import { Link, usePage } from "@inertiajs/vue3";
+
+const page = usePage();
 
 const data = {
     user: {
-        name: "shadcn",
-        email: "m@example.com",
+        name: page.props.auth.user.name,
+        email: page.props.auth.user.email,
         avatar: "/images/profile.jpg",
     },
     teams: [
@@ -474,10 +477,17 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                                     </DropdownMenuItem>
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>
-                                    <LogOut />
-                                    Log out
-                                </DropdownMenuItem>
+                                <Link
+                                    href="/logout"
+                                    class="w-full"
+                                    method="post"
+                                    as="button"
+                                >
+                                    <DropdownMenuItem>
+                                        <LogOut />
+                                        Log out
+                                    </DropdownMenuItem>
+                                </Link>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </SidebarMenuItem>
