@@ -49,10 +49,12 @@ const fallbackImageName: string = user.value.name[0];
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-                <DropdownMenuItem>
-                    Profile
-                    <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                </DropdownMenuItem>
+                <a href="/profile">
+                    <DropdownMenuItem>
+                        Profile
+                        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                </a>
                 <DropdownMenuItem>
                     Billing
                     <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
