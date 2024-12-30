@@ -47,7 +47,7 @@ import {
 } from "@/components/ui/sidebar";
 import {
     AudioWaveform,
-    BadgeCheck,
+    Settings,
     Bell,
     BookOpen,
     Bot,
@@ -462,8 +462,8 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <DropdownMenuItem>
-                                        <BadgeCheck />
-                                        Account
+                                        <Settings />
+                                        Settings
                                     </DropdownMenuItem>
                                     <DropdownMenuItem>
                                         <CreditCard />
