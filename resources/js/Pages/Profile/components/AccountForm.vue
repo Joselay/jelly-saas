@@ -36,7 +36,7 @@ import {
     today,
 } from "@internationalized/date";
 import { toTypedSchema } from "@vee-validate/zod";
-import RadixIconsCalendar from "~icons/radix-icons/calendar";
+// import RadixIconsCalendar from "~icons/radix-icons/calendar";
 import { Check, ChevronsUpDown } from "lucide-vue-next";
 import { toDate } from "radix-vue/date";
 import { h, ref } from "vue";
