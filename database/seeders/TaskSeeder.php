@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Task\Task;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TaskSeeder extends Seeder
@@ -15,11 +14,11 @@ class TaskSeeder extends Seeder
             'title' => 'You can\'t compress the program without quantifying the open-source SSD pixel!',
             'assignee' => 'John Doe',
             'status' => 'in progress',
-            'priority' => 'medium',
+            'priority' => 'low',
         ]);
 
         Task::create([
-            'label' => 'documentation',
+            'label' => 'feature',
             'title' => 'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
             'assignee' => 'Jane Smith',
             'status' => 'backlog',

@@ -11,13 +11,12 @@ interface Task {
     priority: string;
 }
 
-const props = defineProps({
+defineProps({
     tasks: {
-        type: Array as PropType<Task[]>, // Expecting an array of tasks
-        default: () => [], // Default empty array
+        type: Array as PropType<Task[]>,
+        default: () => [],
     },
 });
-console.log(props.tasks);
 </script>
 
 <template>
