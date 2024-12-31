@@ -227,11 +227,11 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                                     class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                                 >
                                     <div
-                                        class="flex items-center justify-center rounded-lg aspect-square size-8 bg-sidebar-primary text-sidebar-primary-foreground"
+                                        class="flex items-center justify-center rounded-lg aspect-square size-8 bg-sidebar-primary text-sidebar-primary-foreground bg-primary"
                                     >
                                         <component
                                             :is="activeTeam.logo"
-                                            class="size-4"
+                                            class="size-4 stroke-background"
                                         />
                                     </div>
                                     <div
