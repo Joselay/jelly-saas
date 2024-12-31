@@ -1,7 +1,23 @@
 <script setup lang="ts">
+import { PropType } from "vue";
 import { columns } from "./components/columns";
 import DataTable from "./components/DataTable.vue";
-import tasks from "./data/tasks.json";
+
+interface Task {
+    id: string;
+    title: string;
+    status: string;
+    label: string;
+    priority: string;
+}
+
+const props = defineProps({
+    tasks: {
+        type: Array as PropType<Task[]>, // Expecting an array of tasks
+        default: () => [], // Default empty array
+    },
+});
+console.log(props.tasks);
 </script>
 
 <template>
