@@ -61,8 +61,6 @@ export const columns: ColumnDef<Task>[] = [
         cell: ({ row }) => {
             const avatarUrl = "/images/profile.jpg";
 
-            console.log(row.getValue("assignee"));
-
             if (!avatarUrl) return null;
 
             return h("div", { class: "flex items-center space-x-2" }, [

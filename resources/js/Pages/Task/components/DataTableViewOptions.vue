@@ -35,6 +35,8 @@ import { Label } from "@/components/ui/label";
 import { MixerHorizontalIcon, PlusIcon } from "@radix-icons/vue";
 
 import { computed } from "vue";
+import { useForm } from "@inertiajs/vue3";
+import FormMessage from "@/components/ui/form/FormMessage.vue";
 
 interface DataTableViewOptionsProps {
     table: Table<Task>;
@@ -50,6 +52,18 @@ const columns = computed(() =>
                 typeof column.accessorFn !== "undefined" && column.getCanHide()
         )
 );
+
+const form = useForm({
+    label: "",
+    title: "",
+    assignee: "",
+    status: "",
+    priority: "",
+});
+
+const handleAddTask = () => {
+    form.post(route("task.add"));
+};
 </script>
 
 <template>
@@ -90,7 +104,7 @@ const columns = computed(() =>
                             <Label for="label" class="text-right">
                                 Label
                             </Label>
-                            <Select id="label">
+                            <Select id="label" v-model="form.label">
                                 <SelectTrigger class="col-span-3">
                                     <SelectValue placeholder="Choose a label" />
                                 </SelectTrigger>
@@ -114,14 +128,18 @@ const columns = computed(() =>
                             <Label for="title" class="text-right">
                                 Title
                             </Label>
-                            <Input id="title" class="col-span-3" />
+                            <Input
+                                v-model="form.title"
+                                id="title"
+                                class="col-span-3"
+                            />
                         </div>
 
                         <div class="grid items-center grid-cols-4 gap-4">
                             <Label for="assignee" class="text-right">
                                 Assignee
                             </Label>
-                            <Select id="assignee">
+                            <Select id="assignee" v-model="form.assignee">
                                 <SelectTrigger class="col-span-3">
                                     <SelectValue
                                         placeholder="Choose assignee"
@@ -130,14 +148,8 @@ const columns = computed(() =>
                                 <SelectContent>
                                     <SelectGroup>
                                         <SelectLabel>Assignee</SelectLabel>
-                                        <SelectItem value="bug">
-                                            Bug
-                                        </SelectItem>
-                                        <SelectItem value="feature">
-                                            Feature
-                                        </SelectItem>
-                                        <SelectItem value="documentation">
-                                            Documentation
+                                        <SelectItem value="menglay">
+                                            Menglay
                                         </SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
@@ -147,7 +159,7 @@ const columns = computed(() =>
                             <Label for="status" class="text-right">
                                 Status
                             </Label>
-                            <Select id="status">
+                            <Select id="status" v-model="form.status">
                                 <SelectTrigger class="col-span-3">
                                     <SelectValue
                                         placeholder="Choose a status"
@@ -179,7 +191,7 @@ const columns = computed(() =>
                             <Label for="priority" class="text-right">
                                 Priority
                             </Label>
-                            <Select id="priority">
+                            <Select id="priority" v-model="form.priority">
                                 <SelectTrigger class="col-span-3">
                                     <SelectValue
                                         placeholder="Choose a priority"
@@ -203,7 +215,9 @@ const columns = computed(() =>
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button type="submit"> Add </Button>
+                        <Button type="submit" @click="handleAddTask">
+                            Add
+                        </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>

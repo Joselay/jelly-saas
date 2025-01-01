@@ -18,6 +18,7 @@ Route::get("/register", [RegisterController::class, "index"])->name("auth.regist
 
 Route::get("/tasks", [TaskController::class, "index"])->name("task.task");
 Route::delete("/tasks/{id}", [TaskController::class, "deleteTaskById"])->name("task.delete");
+Route::post("/tasks", [TaskController::class, "addTask"])->name("task.add");
 
 Route::prefix('settings')->group(function () {
     Route::get("/profile", [ProfileController::class, "index"])->name("settings.profile");

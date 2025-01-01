@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Task;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task\Task;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all()->map(function ($task) {
+        $tasks = Task::orderBy('updated_at', 'desc')->get()->map(function ($task) {
             return [
                 "id" => $task->id,
                 "label" => $task->label,
@@ -30,5 +31,16 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $task->delete();
+    }
+
+    public function addTask(Request $request): void
+    {
+        $task = new Task();
+        $task->label = $request->label;
+        $task->title = $request->title;
+        $task->assignee = $request->assignee;
+        $task->status = $request->status;
+        $task->priority = $request->priority;
+        $task->save();
     }
 }
