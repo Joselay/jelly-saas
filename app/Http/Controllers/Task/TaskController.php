@@ -13,9 +13,10 @@ class TaskController extends Controller
         $tasks = Task::all()->map(function ($task) {
             return [
                 "id" => $task->id,
-                "title" => $task->title,
-                "status" => $task->status,
                 "label" => $task->label,
+                "title" => $task->title,
+                "assignee" => $task->assignee,
+                "status" => $task->status,
                 "priority" => $task->priority,
             ];
         });

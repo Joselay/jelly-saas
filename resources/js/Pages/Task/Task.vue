@@ -4,10 +4,11 @@ import { columns } from "./components/columns";
 import DataTable from "./components/DataTable.vue";
 
 interface Task {
-    id: string;
-    title: string;
-    status: string;
+    id: number;
     label: string;
+    title: string;
+    assignee: string;
+    status: string;
     priority: string;
 }
 
