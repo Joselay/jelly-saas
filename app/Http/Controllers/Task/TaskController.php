@@ -43,4 +43,15 @@ class TaskController extends Controller
         $task->priority = $request->priority;
         $task->save();
     }
+
+    public function updateTaskById(Request $request, $id): void
+    {
+        $task = Task::find($id);
+        $task->label = $request->label;
+        $task->title = $request->title;
+        $task->assignee = $request->assignee;
+        $task->status = $request->status;
+        $task->priority = $request->priority;
+        $task->save();
+    }
 }
