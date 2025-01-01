@@ -24,4 +24,10 @@ class TaskController extends Controller
             "tasks" => $tasks,
         ]);
     }
+
+    public function deleteTaskById($id): void
+    {
+        $task = Task::find($id);
+        $task->delete();
+    }
 }

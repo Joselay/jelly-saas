@@ -23,12 +23,22 @@ import { computed } from "vue";
 import { labels } from "../data/data";
 import { taskSchema } from "../data/schema";
 
+import { router } from "@inertiajs/vue3";
+
 interface DataTableRowActionsProps {
     row: Row<Task>;
 }
 const props = defineProps<DataTableRowActionsProps>();
 
 const task = computed(() => taskSchema.parse(props.row.original));
+
+const handleDelete = () => {
+    router.delete(route("task.delete", props.row.original.id), {
+        onSuccess: () => {
+            console.log("Success deleted");
+        },
+    });
+};
 </script>
 
 <template>
@@ -62,7 +72,7 @@ const task = computed(() => taskSchema.parse(props.row.original));
                 </DropdownMenuSubContent>
             </DropdownMenuSub>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem @click="handleDelete">
                 Delete
                 <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
             </DropdownMenuItem>

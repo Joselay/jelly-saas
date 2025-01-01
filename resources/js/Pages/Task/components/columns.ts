@@ -32,14 +32,6 @@ export const columns: ColumnDef<Task>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "id",
-        header: ({ column }) =>
-            h(DataTableColumnHeader, { column, title: "Task" }),
-        cell: ({ row }) => h("div", { class: "w-20" }, row.getValue("id")),
-        enableSorting: false,
-        enableHiding: false,
-    },
-    {
         accessorKey: "title",
         header: ({ column }) =>
             h(DataTableColumnHeader, { column, title: "Title" }),
