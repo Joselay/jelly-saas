@@ -116,15 +116,94 @@ const columns = computed(() =>
                             </Label>
                             <Input id="title" class="col-span-3" />
                         </div>
+
                         <div class="grid items-center grid-cols-4 gap-4">
-                            <Label for="username" class="text-right">
-                                Username
+                            <Label for="assignee" class="text-right">
+                                Assignee
                             </Label>
-                            <Input id="username" class="col-span-3" />
+                            <Select id="assignee">
+                                <SelectTrigger class="col-span-3">
+                                    <SelectValue
+                                        placeholder="Choose assignee"
+                                    />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>Assignee</SelectLabel>
+                                        <SelectItem value="bug">
+                                            Bug
+                                        </SelectItem>
+                                        <SelectItem value="feature">
+                                            Feature
+                                        </SelectItem>
+                                        <SelectItem value="documentation">
+                                            Documentation
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                        </div>
+                        <div class="grid items-center grid-cols-4 gap-4">
+                            <Label for="status" class="text-right">
+                                Status
+                            </Label>
+                            <Select id="status">
+                                <SelectTrigger class="col-span-3">
+                                    <SelectValue
+                                        placeholder="Choose a status"
+                                    />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>Status</SelectLabel>
+                                        <SelectItem value="backlog">
+                                            Backlog
+                                        </SelectItem>
+                                        <SelectItem value="todo">
+                                            Todo
+                                        </SelectItem>
+                                        <SelectItem value="in progress">
+                                            In Progress
+                                        </SelectItem>
+                                        <SelectItem value="done">
+                                            Done
+                                        </SelectItem>
+                                        <SelectItem value="canceled">
+                                            Canceled
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                        </div>
+                        <div class="grid items-center grid-cols-4 gap-4">
+                            <Label for="priority" class="text-right">
+                                Priority
+                            </Label>
+                            <Select id="priority">
+                                <SelectTrigger class="col-span-3">
+                                    <SelectValue
+                                        placeholder="Choose a priority"
+                                    />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>Priority</SelectLabel>
+                                        <SelectItem value="low">
+                                            Low
+                                        </SelectItem>
+                                        <SelectItem value="medium">
+                                            Medium
+                                        </SelectItem>
+                                        <SelectItem value="high">
+                                            High
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
                         </div>
                     </div>
                     <DialogFooter>
-                        <Button type="submit"> Save changes </Button>
+                        <Button type="submit"> Add </Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
