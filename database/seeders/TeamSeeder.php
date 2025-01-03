@@ -4,22 +4,28 @@ namespace Database\Seeders;
 
 use App\Models\Team\Team;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TeamSeeder extends Seeder
 {
 
     public function run(): void
     {
-        Team::create([
-            'name' => 'Development Team',
-        ]);
-
-        Team::create([
-            'name' => 'Marketing Team',
-        ]);
-
-        Team::create([
-            'name' => 'Design Team',
+        DB::table('teams')->insert([
+            [
+                'name' => 'Acme Inc',
+                'logo' => 'path/to/logo.png',
+                'plan' => 'Enterprise',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'GlobalTech',
+                'logo' => 'path/to/globaltech-logo.png',
+                'plan' => 'Basic',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
