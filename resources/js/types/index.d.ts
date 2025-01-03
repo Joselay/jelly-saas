@@ -4,4 +4,5 @@ export type PageProps<
     auth: {
         user: User;
     };
+    teams: Team[];
 };

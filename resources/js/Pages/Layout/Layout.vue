@@ -69,11 +69,15 @@ import {
     SquareTerminal,
     Trash2,
 } from "lucide-vue-next";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 import { Link, usePage } from "@inertiajs/vue3";
 
 const page = usePage();
+
+const teams = computed(() => {
+    return page.props.teams;
+});
 
 const data = {
     user: {
@@ -81,23 +85,7 @@ const data = {
         email: page.props.auth.user.email,
         avatar: page.props.auth.user.avatar,
     },
-    teams: [
-        {
-            name: "Acme Inc",
-            logo: GalleryVerticalEnd,
-            plan: "Enterprise",
-        },
-        {
-            name: "Acme Corp.",
-            logo: AudioWaveform,
-            plan: "Startup",
-        },
-        {
-            name: "Evil Corp.",
-            logo: Command,
-            plan: "Free",
-        },
-    ],
+    teams: teams.value,
     navMain: [
         {
             title: "Playground",
