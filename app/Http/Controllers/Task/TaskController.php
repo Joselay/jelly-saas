@@ -11,16 +11,23 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::orderBy('updated_at', 'desc')->get()->map(function ($task) {
-            return [
-                "id" => $task->id,
-                "label" => $task->label,
-                "title" => $task->title,
-                "assignee" => $task->assignee,
-                "status" => $task->status,
-                "priority" => $task->priority,
-            ];
-        });
+        $tasks = Task::with('user')
+            ->orderBy('updated_at', 'desc')
+            ->get()
+            ->map(function ($task) {
+                return [
+                    "id" => $task->id,
+                    "label" => $task->label,
+                    "title" => $task->title,
+                    "assignee" => [
+                        'id' => $task->user->id,
+                        'name' => $task->user->name,
+                        'avatar' => $task->user->avatar,
+                    ],
+                    "status" => $task->status,
+                    "priority" => $task->priority,
+                ];
+            });
 
         return Inertia::render("Task/Task", [
             "tasks" => $tasks,

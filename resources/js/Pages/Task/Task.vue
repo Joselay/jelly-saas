@@ -7,7 +7,11 @@ interface Task {
     id: number;
     label: string;
     title: string;
-    assignee: string;
+    assignee: {
+        id: number;
+        name: string;
+        avatar: string;
+    };
     status: string;
     priority: string;
 }

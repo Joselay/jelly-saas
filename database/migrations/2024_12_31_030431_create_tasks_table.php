@@ -13,13 +13,14 @@ return new class extends Migration
             $table->id();
             $table->string("label");
             $table->string("title");
-            $table->string("assignee");
+            $table->unsignedBigInteger('user_id');
             $table->string("status");
             $table->string("priority");
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
-
 
     public function down(): void
     {

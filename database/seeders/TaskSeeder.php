@@ -3,24 +3,27 @@
 namespace Database\Seeders;
 
 use App\Models\Task\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class TaskSeeder extends Seeder
 {
     public function run(): void
     {
+
+
         Task::create([
             'label' => 'documentation',
             'title' => 'You can\'t compress the program without quantifying the open-source SSD pixel!',
-            'assignee' => 'John Doe',
+            'user_id' => 1,
             'status' => 'in progress',
-            'priority' => 'low',
+            'priority' => 'medium',
         ]);
 
         Task::create([
-            'label' => 'feature',
+            'label' => 'documentation',
             'title' => 'Try to calculate the EXE feed, maybe it will index the multi-byte pixel!',
-            'assignee' => 'Jane Smith',
+            'user_id' => 1,
             'status' => 'backlog',
             'priority' => 'medium',
         ]);
@@ -28,7 +31,7 @@ class TaskSeeder extends Seeder
         Task::create([
             'label' => 'bug',
             'title' => 'We need to bypass the neural TCP card!',
-            'assignee' => 'Alice Brown',
+            'user_id' => 1,
             'status' => 'todo',
             'priority' => 'high',
         ]);

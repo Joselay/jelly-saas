@@ -59,7 +59,7 @@ export const columns: ColumnDef<Task>[] = [
             h(DataTableColumnHeader, { column, title: "Assignee" }),
 
         cell: ({ row }) => {
-            const avatarUrl = "/images/profile.jpg";
+            const avatarUrl = row.original.assignee?.avatar;
 
             if (!avatarUrl) return null;
 
