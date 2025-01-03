@@ -69,15 +69,11 @@ import {
     SquareTerminal,
     Trash2,
 } from "lucide-vue-next";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 import { Link, usePage } from "@inertiajs/vue3";
 
 const page = usePage();
-
-const teams = computed(() => {
-    return page.props.teams;
-});
 
 const data = {
     user: {
@@ -85,7 +81,7 @@ const data = {
         email: page.props.auth.user.email,
         avatar: page.props.auth.user.avatar,
     },
-    teams: teams.value,
+    teams: page.props.teams,
     navMain: [
         {
             title: "Playground",
