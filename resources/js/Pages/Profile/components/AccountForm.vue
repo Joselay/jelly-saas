@@ -36,7 +36,7 @@ import {
     today,
 } from "@internationalized/date";
 import { toTypedSchema } from "@vee-validate/zod";
-// import RadixIconsCalendar from "~icons/radix-icons/calendar";
+import { CalendarIcon } from "@radix-icons/vue";
 import { Check, ChevronsUpDown } from "lucide-vue-next";
 import { toDate } from "radix-vue/date";
 import { h, ref } from "vue";
@@ -148,9 +148,7 @@ async function onSubmit(values: any) {
                                     )
                                 "
                             >
-                                <RadixIconsCalendar
-                                    class="w-4 h-4 mr-2 opacity-50"
-                                />
+                                <CalendarIcon class="w-4 h-4 mr-2 opacity-50" />
                                 <span>{{
                                     value
                                         ? df.format(

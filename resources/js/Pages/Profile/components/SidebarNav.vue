@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link } from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/vue3";
 
 interface Item {
     title: string;
     href: string;
 }
+
+const { url } = usePage();
 
 const sidebarNavItems: Item[] = [
     {
@@ -39,8 +41,8 @@ const sidebarNavItems: Item[] = [
                 variant="ghost"
                 :class="
                     cn(
-                        'w-full text-left justify-start'
-                        // $route.path === `${item.href}.html` && 'bg-muted hover:bg-muted',
+                        'w-full text-left justify-start',
+                        url.includes(item.href) && 'bg-muted hover:bg-muted'
                     )
                 "
             >

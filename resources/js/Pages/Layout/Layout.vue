@@ -75,7 +75,6 @@ import { Link, usePage } from "@inertiajs/vue3";
 
 const page = usePage();
 
-
 const data = {
     user: {
         name: page.props.auth.user.name,
@@ -520,14 +519,23 @@ function setActiveTeam(team: (typeof data.teams)[number]) {
                     <Separator orientation="vertical" class="h-4 mr-2" />
                     <Breadcrumb>
                         <BreadcrumbList>
-                            <BreadcrumbItem class="hidden md:block">
+                            <BreadcrumbItem
+                                :class="[
+                                    'hidden md:block',
+                                    page.url.includes('/tasks')
+                                        ? 'text-black'
+                                        : '',
+                                ]"
+                            >
                                 <BreadcrumbLink href="/tasks">
                                     Tasks
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator class="hidden md:block" />
-                            <BreadcrumbItem>
-                                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                            <BreadcrumbItem
+                                v-if="page.url.includes('/settings')"
+                            >
+                                <BreadcrumbPage>Settings</BreadcrumbPage>
                             </BreadcrumbItem>
                         </BreadcrumbList>
                     </Breadcrumb>
