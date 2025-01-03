@@ -75,11 +75,12 @@ import { Link, usePage } from "@inertiajs/vue3";
 
 const page = usePage();
 
+
 const data = {
     user: {
         name: page.props.auth.user.name,
         email: page.props.auth.user.email,
-        avatar: "/images/profile.jpg",
+        avatar: page.props.auth.user.avatar,
     },
     teams: [
         {

@@ -118,7 +118,7 @@ const handleEdit = (id: number) => {
         </DropdownMenuContent>
     </DropdownMenu>
 
-    <Dialog :open="open">
+    <Dialog v-model:open="open" >
         <DialogContent class="sm:max-w-[425px]">
             <DialogHeader>
                 <DialogTitle>Edit task</DialogTitle>
