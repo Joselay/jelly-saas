@@ -35,7 +35,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'teams' => Team::where('id', $request->user()->team_id)->get(),
+            'teams' => $request->user() ? Team::find($request->user()->team_id) : null,
         ];
     }
 }
